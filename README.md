@@ -45,4 +45,4 @@ git clone https://github.com/Glonuel342/REST-COUNTRIES-API.git
 
 
 ## Deployed Link
-Deployed link: https://
+Deployed link: https://https://gloria-restcountries.netlify.app/

@@ -1,6 +1,9 @@
 import * as C from './styles';
 import { useEffect, useState } from 'react';
+import { CountriesTS } from '../../types/Countries';
 import { Input } from '../../components/Input/Input';
+import { CountryItem } from '../../components/CountryItem/CountryItem';
+import Pagination from './Pagination';
 import { useForm } from '../../contexts/ThemeContext';
 import { useApi } from '../../contexts/ApiContext';
 
@@ -42,10 +45,49 @@ export const Countries = () => {
     setSelectedRegion(region);
   };
 
+  const filteredCountries = countries?.filter((country: CountriesTS) => {
+    const countryName = country.name.toLowerCase();
+    const searchInput = search.toLowerCase();
+    const region = country.region.toLowerCase();
+
+    if (selectedRegion) {
+      return region.includes(selectedRegion.toLowerCase()) && countryName.includes(searchInput);
+    } else {
+      return countryName.includes(searchInput);
+    }
+  });
+
+  const pagCountries = filteredCountries?.slice(offset, offset + LIMIT) || [];
+
+  useEffect(() => {
+    // If the searched country is not in the selected region
+    setShowNoCountryMessage(selectedRegion !== '' && filteredCountries?.length === 0);
+  }, [selectedRegion, filteredCountries]);
 
   return (
     <C.CountriesArea theme={state.theme}>
       <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
+
+      <div className="countries">
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : showNoCountryMessage ? (
+          <div className="no-country-message">Searched country is not in this region</div>
+        ) : (
+          pagCountries?.map((item: CountriesTS) => (
+            <CountryItem
+              key={item.numericCode}
+              name={item.name}
+              population={item.population}
+              region={item.region}
+              capital={item.capital}
+              flag={item.flags.png}
+            />
+          ))
+        )}
+      </div>
+
+      <Pagination limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} />
     </C.CountriesArea>
   );
 };

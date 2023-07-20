@@ -13,3 +13,6 @@ export const CountryPage = () =>{
     const [loading,setLoading] = useState();
     const [country, setCountry] = useState<CountryTS[]>([]);
 }
+    
+  
+  

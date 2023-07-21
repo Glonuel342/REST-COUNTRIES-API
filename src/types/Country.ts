@@ -2,6 +2,7 @@ export interface CountryTS{
     name: string,
     nativeName: string,
     population: number,
+    region: string;
     subregion: string,
     capital: string,
     flags: {

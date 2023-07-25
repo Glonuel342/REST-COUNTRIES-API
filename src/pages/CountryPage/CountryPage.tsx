@@ -1,5 +1,6 @@
 import * as C from './styles';
 import { Link, useParams } from 'react-router-dom';
+import { SingleCountry } from '../../components/SingleCountry/SingleCountry';
 import { useEffect, useState } from 'react';
 import { CountryTS } from '../../types/Country';
 import { useApi } from '../../contexts/ApiContext';
@@ -13,6 +14,19 @@ export const CountryPage = () =>{
     const [loading,setLoading] = useState();
     const [country, setCountry] = useState<CountryTS[]>([]);
 
+   useEffect(() =>{
+    if (name) {
+        getCountry(name);
+    }
+   },[name]);
+
+   const getCountry =async (param: string) => {
+    
+   
+   }
+   
+
+   
 }
     
   

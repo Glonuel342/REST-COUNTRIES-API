@@ -6,5 +6,5 @@ import { useApi } from '../../contexts/ApiContext';
 import {useEffect, useState} from 'react';
 
 export const SingleCountry = ({ 
-    
+   
 })

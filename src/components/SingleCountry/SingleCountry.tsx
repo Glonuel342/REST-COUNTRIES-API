@@ -6,5 +6,17 @@ import { useApi } from '../../contexts/ApiContext';
 import {useEffect, useState} from 'react';
 
 export const SingleCountry = ({ 
-   
-})
+   name,
+   nativeName,
+   population,
+   region,
+   subregion,
+   capital,
+   topLevelDomain,
+   currencies,
+   languages,
+   borders,
+   flag
+}: SingleCountryTS) => {
+
+}

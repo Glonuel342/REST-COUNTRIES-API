@@ -7,4 +7,5 @@ export interface CountriesTS{
     flags:{
         png:string
     }
+    
 }

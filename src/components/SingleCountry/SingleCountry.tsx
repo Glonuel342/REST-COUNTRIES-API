@@ -18,5 +18,10 @@ export const SingleCountry = ({
    borders,
    flag
 }: SingleCountryTS) => {
+   const { state } = useForm();
+   const countries = useApi();
+   const [borderFullNames, setBorderFullNames]=useState<string[]>([]);
 
+   useEffect
+      
 }

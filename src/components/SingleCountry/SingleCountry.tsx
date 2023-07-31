@@ -22,6 +22,13 @@ export const SingleCountry = ({
    const countries = useApi();
    const [borderFullNames, setBorderFullNames]=useState<string[]>([]);
 
-   useEffect
+   useEffect(() =>{
+      const getBorderFullNames = (borderCodes: string[])=> {
+         const borderCountries  = countries.filter((country: any) => borderCodes.includes(country.alpha3Code));
+         const borderCountryNames = borderCountries.map((country: any)  => country.name);
+         return borderCountryNames;
+      };  
+
+   })
       
 }

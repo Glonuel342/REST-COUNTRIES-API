@@ -20,11 +20,12 @@ export const CountryPage = () =>{
     }
    },[name]);
 
-   const getCountry =async (param: string) => {
+   const getCountry = async (param: string) => {
     setLoading
-    }
    
+    }
    }
+
    
 
    

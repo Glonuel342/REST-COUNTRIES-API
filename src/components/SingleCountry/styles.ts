@@ -64,9 +64,34 @@ img{
                 font-weight: 300;
                 border-radius: 2px;
                 box-shadow: 0px 2px 9px 0px #0000000E;
+           }
+        }
+    }
+}
 
-    
+@media(min-width: 740px) and (max-width: 1023px) {
+    & {
+        img{
+            width: 340px;
+            height: 200px;
+        }
+        
+        .data--area {
+            h1 {
+                font-size: 28px
             }
+
+            .data--firstArea {
+                p,span {
+                    font-size: 14px;
+                }
+            }
+        
+        .border--area{
+            p, span, a {
+                font-size: 14px;
+            } 
+        }
         }
     }
 }

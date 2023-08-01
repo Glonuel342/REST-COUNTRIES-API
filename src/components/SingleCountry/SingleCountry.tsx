@@ -29,6 +29,29 @@ export const SingleCountry = ({
          return borderCountryNames;
       };  
 
-   })
-      
+      const fetchBordderFullNames = () =>{
+         if (borders &&  borders.length > 0) {
+            const fullNames = getBorderFullNames(borders);
+            setBorderFullNames(fullNames);
+         }
+      };
+      fetchBordderFullNames();
+   },[borders, countries]);
+   
+   return (
+      <C.CountryData theme={state.theme}>
+         <img src={flag} alt={`Country: ${name}`} />
+         <div className='data--area'>
+            <h1>{name}</h1>
+            <div className='data--firstArea'>
+               <p><span>Native Name : </span>{nativeName}</p>
+               <p className='topLevel'><span>Top Level Domain: </span>{topLevelDomain}</p>
+               <p><span>Population: </span>{' '}{population.toLocaleString()}</p>
+            {currencies &&
+               <p><span>currencies</span>{currencies.map(item => item.name)}</p>
+            }
+            </div>
+         </div>
+      </C.CountryData>
+   )   
 }

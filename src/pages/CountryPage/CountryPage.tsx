@@ -22,9 +22,10 @@ export const CountryPage = () =>{
 
    const getCountry = async (param: string) => {
     setLoading
+    
    
-    }
-   }
+    };
+   };
 
    
 
